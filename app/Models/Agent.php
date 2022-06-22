@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
+use Kyslik\ColumnSortable\Sortable;
 
 class Agent extends Model
 {
-    use Searchable,HasFactory;
+    use Searchable,HasFactory,Sortable;
 
     protected $fillable = [
         'uuid',
@@ -24,4 +25,10 @@ class Agent extends Model
             
         ];
     }
+
+    public $sortable=[
+        'uuid',
+        'line',
+        
+    ];
 }

@@ -20,17 +20,13 @@
                 <td>{{ $user->email }}</td>
                 <td><img src="../public/images/{{ ($user->image) }}" height="45px" width="50px"></td>      
                 <td style="float:right;border:none">
-                    <form action="{{ route('user.destroy',$user->id) }}" method="POST" style="margin: 0%">
+                  
    
                         <a class="btn-sm btn-info" href="{{ route('user.show',$user->id) }}">View</a>
         
                         <a class="btn-sm btn-primary" href="{{ route('user.edit',$user->id) }}">Edit</a>
        
-                        @csrf
-                        @method('DELETE')
-          
-                        <button type="submit" class="btn-xs btn-danger" id="deleteUser">Delete</button>
-                    </form>
+                        
                   
                 </td>
             </tr>

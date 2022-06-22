@@ -5,7 +5,7 @@
     <table id="example1" class="table table-bordered table-striped" id=userListing>
         <thead>
             <tr>
-                <th  class="col-sm-1">UUID</th>
+                <th  class="col-sm-1">@sortablelink('uuid','UUID')</th>
                 <th class="col-sm-3">Agent Line</th>
                 <th class="col-1">Action</th>
             </tr>
@@ -16,7 +16,7 @@
                 <td>{{ $agent->uuid }}</td>
                 <td>{{ $agent->line }}</td>  
                 <td style="float:right;border:none">
-                    <form action="{{ route('agent.destroy',$agent->id) }}" method="POST" style="margin: 0%">
+                   
    
                         <a class="btn-sm btn-info" href="{{ route('agent.show',$agent->id) }}">View</a>
         
@@ -25,8 +25,8 @@
                         @csrf
                         @method('DELETE')
           
-                        <button type="submit" class="btn-xs btn-danger" id="deleteUser">Delete</button>
-                    </form>
+                       
+                   
                   
                 </td>
             </tr>

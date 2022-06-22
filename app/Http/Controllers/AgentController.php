@@ -22,7 +22,7 @@ class AgentController extends Controller
         }
         
        else{ 
-           $agents = Agent::latest()->paginate(10);
+           $agents = Agent::sortable()->latest()->paginate(10);
        }
         return view('backend.agent.index',compact('agents'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
