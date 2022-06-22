@@ -1,0 +1,57 @@
+install breadcrumbs
+https://github.com/diglactic/laravel-breadcrumbs
+
+sweetalert2
+https://realrashid.github.io/sweet-alert/
+
+-composer require realrashid/sweet-alert
+-add in you config/app.php
+'providers' => [
+    /*
+    * Package Service Providers...
+    */
+    RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+],
+
+-aliases add in
+'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+
+-@include('sweetalert::alert') inside you master layout
+-run php artisan sweetalert:publish
+
+
+Scout(Seacrch)
+install scout
+-composer require laravel/scout
+-php artisan vendor:publish --provider="Laravel\Scout\ScoutServiceProvider"
+
+add Scout in which you want to make search function Mondels
+use Laravel\Scout\Searchable;
+use \Searchable;
+   public function toSearchableArray()
+    {
+        return [
+            'name' => $this->name,
+            'email' => $this->email
+        ];
+    }
+
+run import Record
+-php artisan scout:import "App\Models\(WHICH YOU WANT)"
+
+html
+-
+    <form method="GET">
+        <div class="input-group mb-3">
+          <input 
+            type="text" 
+            name="search" 
+            value="{{ request()->get('search') }}" 
+            class="form-control" 
+            placeholder="Search..." 
+            aria-label="Search" 
+            aria-describedby="button-addon2">
+          <button class="btn btn-success" type="submit" id="button-addon2">Search</button>
+        </div>
+    </form>
+
